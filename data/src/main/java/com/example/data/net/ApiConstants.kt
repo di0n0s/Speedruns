@@ -7,4 +7,5 @@ object ApiConstants {
     const val TIMEOUT_CONNECTION_VALUE = 60L
     const val TIMEOUT_READ_VALUE = 60L
     const val TIMEOUT_WRITE_VALUE = 60L
+    const val NEXT = "next"
 }
