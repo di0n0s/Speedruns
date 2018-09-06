@@ -10,7 +10,7 @@ import com.example.sfuentes.speedruns.views.base.BaseFragment
  * A simple [Fragment] subclass.
  *
  */
-class GameListFragment : BaseFragment(), GameListVew {
+class GameListFragment : BaseFragment(), GameListView {
 
     override fun showProgressBar(show: Boolean) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

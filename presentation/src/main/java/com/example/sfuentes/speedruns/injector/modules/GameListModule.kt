@@ -4,7 +4,7 @@ import com.example.sfuentes.speedruns.injector.PerFragment
 import com.example.sfuentes.speedruns.interfaces.GameListActivityListener
 import com.example.sfuentes.speedruns.views.gameList.GameListActivity
 import com.example.sfuentes.speedruns.views.gameList.GameListFragment
-import com.example.sfuentes.speedruns.views.gameList.GameListVew
+import com.example.sfuentes.speedruns.views.gameList.GameListView
 import dagger.Module
 import dagger.Provides
 
@@ -13,7 +13,7 @@ class GameListModule(private val gameListFragment: GameListFragment,
                      private val gameListActivity: GameListActivity) {
     @Provides
     @PerFragment
-    fun provideGameListView(): GameListVew = gameListFragment
+    fun provideGameListView(): GameListView = gameListFragment
 
     @Provides
     @PerFragment
