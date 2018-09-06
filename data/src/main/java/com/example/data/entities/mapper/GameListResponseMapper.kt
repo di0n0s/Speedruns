@@ -20,7 +20,7 @@ object GameListResponseMapper {
                     if (it.id != null && it.names?.international != null) {
                         gameList.add(Game(it.id,
                                 it.names.international,
-                                it.assets?.logo?.uri ?: ""))
+                                it.assets?.coverMedium?.uri ?: ""))
                     }
                 }
             }
