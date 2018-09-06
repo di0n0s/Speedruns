@@ -5,9 +5,14 @@ import android.support.v7.app.AppCompatActivity
 import com.example.sfuentes.speedruns.R
 import com.example.sfuentes.speedruns.SpeedrunApplication
 import com.example.sfuentes.speedruns.extensions.inTransaction
+import com.example.sfuentes.speedruns.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_base.*
+import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    @Inject
+    protected lateinit var navigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

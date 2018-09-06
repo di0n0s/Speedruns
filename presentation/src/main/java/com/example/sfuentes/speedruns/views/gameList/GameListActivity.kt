@@ -23,6 +23,6 @@ class GameListActivity : BaseActivity(), GameListActivityListener {
     }
 
     override fun goToGameDetailActivity(gameView: GameView, view: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        navigator.toGameDetail(this, gameView, view)
     }
 }
