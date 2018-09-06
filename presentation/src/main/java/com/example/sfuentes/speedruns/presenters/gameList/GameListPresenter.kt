@@ -1,4 +1,4 @@
-package com.example.sfuentes.speedruns.presenters
+package com.example.sfuentes.speedruns.presenters.gameList
 
 import com.example.domain.model.GameListPagination
 import com.example.sfuentes.speedruns.presenters.base.BaseListPresenter
