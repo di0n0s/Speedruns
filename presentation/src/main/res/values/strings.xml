@@ -3,4 +3,5 @@
     <string name="game_list_toolbar_title">Game List</string>
     <string name="game_list_empty_title">There are no games</string>
     <string name="game_list_empty_subtitle">Pull to refresh the list</string>
+    <string name="api_error">There was an error</string>
 </resources>
