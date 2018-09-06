@@ -2,7 +2,7 @@ package com.example.sfuentes.speedruns.presenters.base
 
 interface BasePresenter {
 
-    fun start()
+    fun onStart()
     fun onResume()
     fun onPause()
     fun onDestroy()
