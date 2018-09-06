@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Speedruns</string>
+    <string name="game_list_toolbar_title">Game List</string>
 </resources>

@@ -32,4 +32,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     abstract fun fragment(): BaseFragment
+
+    abstract fun setToolbarTitle()
+
 }
