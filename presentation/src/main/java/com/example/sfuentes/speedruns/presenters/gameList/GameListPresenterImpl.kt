@@ -75,7 +75,7 @@ class GameListPresenterImpl @Inject constructor(private val gameListUseCase: Gam
         view.showErrorMessage()
     }
 
-    override fun onStart() {
+    override fun start() {
         loadData()
     }
 
