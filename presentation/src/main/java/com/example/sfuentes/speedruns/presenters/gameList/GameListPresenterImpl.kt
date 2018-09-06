@@ -8,7 +8,7 @@ import com.example.sfuentes.speedruns.entities.FooterGameView
 import com.example.sfuentes.speedruns.entities.GameListPaginationView
 import com.example.sfuentes.speedruns.entities.mapper.GameListPaginationViewMapper
 import com.example.sfuentes.speedruns.injector.PerFragment
-import com.example.sfuentes.speedruns.observers.base.GameListObserver
+import com.example.sfuentes.speedruns.observers.GameListObserver
 import com.example.sfuentes.speedruns.views.gameList.GameListView
 import javax.inject.Inject
 
