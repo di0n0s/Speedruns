@@ -1,8 +1,7 @@
 package com.example.sfuentes.speedruns.views.base
 
-interface BaseListView {
+interface BaseListView : BaseView {
 
-    fun showProgressBar(show: Boolean)
     fun showRecyclerView()
     fun hideRecyclerView()
     fun hideEmptyView()
@@ -11,5 +10,4 @@ interface BaseListView {
     fun setNullAdapter()
     fun setRefreshingBehaviour()
     fun setEmptyView()
-    fun showErrorMessage()
 }
