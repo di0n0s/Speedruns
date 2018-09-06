@@ -19,17 +19,17 @@ class GameListPresenterImpl @Inject constructor(private val gameListUseCase: Gam
     override var isLoading: Boolean = false
     override var isLastPage: Boolean = false
     override var offset: Int = 0
-    var loadEndlessData: Boolean = false
+    private var loadEndlessData: Boolean = false
     @Inject
     lateinit var view: GameListView
 
-    fun getGameList() {
+    private fun getGameList() {
         gameListUseCase.execute(GameListParams(offset), GameListObserver(this))
     }
 
     override fun onGameListReceived(gameListPagination: GameListPagination) {
         val gameListPaginationView = GameListPaginationViewMapper.turnInto(gameListPagination)
-        if (!loadEndlessData){
+        if (!loadEndlessData) {
             model = gameListPaginationView.gameList
             setIsLastPage(gameListPaginationView.nextOffset)
             addFooter()
@@ -59,7 +59,12 @@ class GameListPresenterImpl @Inject constructor(private val gameListUseCase: Gam
     }
 
     override fun setIsLastPage(nextOffset: Int?) {
-        isLastPage = nextOffset == null
+        if (nextOffset == null) {
+            isLastPage = true
+        } else {
+            offset = nextOffset
+            isLastPage = false
+        }
 
     }
 
@@ -86,12 +91,14 @@ class GameListPresenterImpl @Inject constructor(private val gameListUseCase: Gam
     override fun onDestroy() {
         gameListUseCase.dispose()
     }
+
     private fun removeFooterAndConcat(gameListPaginationView: GameListPaginationView) {
         model.removeAll { it is FooterGameView }
         model.addAll(gameListPaginationView.gameList)
-        if (gameListPaginationView.nextOffset != null)
+        if (gameListPaginationView.nextOffset != null) {
+            offset = gameListPaginationView.nextOffset!!
             addFooter()
-        else
+        } else
             isLastPage = true
     }
 
