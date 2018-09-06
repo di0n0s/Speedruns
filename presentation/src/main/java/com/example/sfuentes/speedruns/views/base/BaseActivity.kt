@@ -3,6 +3,7 @@ package com.example.sfuentes.speedruns.views.base
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.sfuentes.speedruns.R
+import com.example.sfuentes.speedruns.SpeedrunApplication
 import com.example.sfuentes.speedruns.extensions.inTransaction
 import kotlinx.android.synthetic.main.activity_base.*
 
@@ -26,9 +27,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun setupActivityComponent() {
-//        SpeedrunApplication
-//                .applicationComponent
-//                .inject(this)
+        SpeedrunApplication
+                .applicationComponent
+                .inject(this)
     }
 
     abstract fun fragment(): BaseFragment
