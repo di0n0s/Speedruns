@@ -2,6 +2,7 @@ package com.example.sfuentes.speedruns.injector.modules
 
 import com.example.data.net.ApiConstants
 import com.example.data.net.ApiService
+import com.example.data.net.interceptor.AuthInterceptor
 import com.example.data.repository.datasource.DataStore
 import com.example.data.repository.datasource.DataStoreImpl
 import com.example.data.repository.RepositoryImpl
@@ -23,8 +24,9 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideApiService(): ApiService {
+    fun provideApiService(authInterceptor: AuthInterceptor): ApiService {
         val httpClient = OkHttpClient.Builder()
+                .addInterceptor(authInterceptor)
                 .connectTimeout(ApiConstants.TIMEOUT_CONNECTION_VALUE, TimeUnit.SECONDS)
                 .readTimeout(ApiConstants.TIMEOUT_READ_VALUE, TimeUnit.SECONDS)
                 .writeTimeout(ApiConstants.TIMEOUT_WRITE_VALUE, TimeUnit.SECONDS)
