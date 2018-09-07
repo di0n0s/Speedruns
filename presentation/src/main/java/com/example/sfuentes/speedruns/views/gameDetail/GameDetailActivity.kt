@@ -11,11 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.sfuentes.speedruns.R
 import com.example.sfuentes.speedruns.entities.GameView
 import com.example.sfuentes.speedruns.glide.GlideApp
+import com.example.sfuentes.speedruns.interfaces.GameDetailActivityListener
 import com.example.sfuentes.speedruns.views.base.BaseActivity
 import com.example.sfuentes.speedruns.views.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_game_detail.*
 
-class GameDetailActivity : BaseActivity() {
+class GameDetailActivity : BaseActivity(), GameDetailActivityListener {
 
     private lateinit var gameView: GameView
 
@@ -81,5 +82,9 @@ class GameDetailActivity : BaseActivity() {
                     .apply(RequestOptions().placeholder(R.drawable.ic_movie_placeholder))
                     .into(gameBackdrop as ImageView)
         }
+    }
+
+    override fun goToVideo(uri: String) {
+        navigator.toVideo(uri, this)
     }
 }

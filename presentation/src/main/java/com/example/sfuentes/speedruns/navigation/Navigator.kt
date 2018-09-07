@@ -1,6 +1,8 @@
 package com.example.sfuentes.speedruns.navigation
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +13,7 @@ import com.example.sfuentes.speedruns.views.gameDetail.GameDetailActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class Navigator @Inject constructor() {
 
@@ -18,6 +21,13 @@ class Navigator @Inject constructor() {
         if (context != null) {
             val intentToLaunch = GameDetailActivity.getCallingIntent(context, gameView)
             context.startActivity(intentToLaunch, prepareOptionsToBundle(context, view))
+        }
+    }
+
+    fun toVideo(uri: String, context: Context?) {
+        if (context != null) {
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            context.startActivity(webIntent)
         }
     }
 

@@ -8,6 +8,7 @@ import com.example.sfuentes.speedruns.R
 import com.example.sfuentes.speedruns.SpeedrunApplication
 import com.example.sfuentes.speedruns.entities.GameView
 import com.example.sfuentes.speedruns.injector.modules.GameDetailModule
+import com.example.sfuentes.speedruns.interfaces.GameDetailActivityListener
 import com.example.sfuentes.speedruns.presenters.gameDetail.GameDetailPresenterImpl
 import com.example.sfuentes.speedruns.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_game_detail.*
@@ -21,6 +22,8 @@ class GameDetailFragment : BaseFragment(), GameDetailView {
 
     @Inject
     lateinit var presenter : GameDetailPresenterImpl
+    @Inject
+    lateinit var activityListener : GameDetailActivityListener
 
     companion object {
         const val TAG = "GameDetailFragment"
@@ -37,6 +40,7 @@ class GameDetailFragment : BaseFragment(), GameDetailView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setButtonListener()
         presenter.setModel(arguments?.getParcelable(ARG_GAME)!!)
         presenter.start()
     }
@@ -46,7 +50,7 @@ class GameDetailFragment : BaseFragment(), GameDetailView {
     override fun setupFragmentComponent() {
         SpeedrunApplication
                 .applicationComponent
-                .plus(GameDetailModule(this))
+                .plus(GameDetailModule(this, activity as GameDetailActivity))
                 .inject(this)
     }
 
@@ -69,6 +73,12 @@ class GameDetailFragment : BaseFragment(), GameDetailView {
 
     override fun hideButtton() {
         videoButton.visibility = View.GONE
+    }
+
+    private fun setButtonListener(){
+        videoButton.setOnClickListener {
+            activityListener.goToVideo(presenter.gameView.speedRunVideoUrl)
+        }
     }
 
 
