@@ -8,4 +8,6 @@ object ApiConstants {
     const val TIMEOUT_READ_VALUE = 60L
     const val TIMEOUT_WRITE_VALUE = 60L
     const val NEXT = "next"
+    const val TOP = 1
+    const val MISCELLANEOUS = false
 }
