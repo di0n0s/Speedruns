@@ -35,6 +35,12 @@ class GameDetailFragment : BaseFragment(), GameDetailView {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.setModel(arguments?.getParcelable(ARG_GAME)!!)
+        presenter.start()
+    }
+
     override fun layoutId(): Int = R.layout.fragment_game_detail
 
     override fun setupFragmentComponent() {

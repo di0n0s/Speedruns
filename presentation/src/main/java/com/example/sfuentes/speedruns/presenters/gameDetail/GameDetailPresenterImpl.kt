@@ -10,7 +10,7 @@ import com.example.sfuentes.speedruns.observers.GameDetailObserver
 import com.example.sfuentes.speedruns.views.gameDetail.GameDetailView
 import javax.inject.Inject
 
-class GameDetailPresenterImpl(private val gameDetailUseCase: GameDetailUseCase) : GameDetailPresenter {
+class GameDetailPresenterImpl @Inject constructor(private val gameDetailUseCase: GameDetailUseCase) : GameDetailPresenter {
 
     @Inject
     lateinit var context: Context

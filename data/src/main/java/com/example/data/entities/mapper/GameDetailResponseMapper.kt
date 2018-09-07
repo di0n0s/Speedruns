@@ -14,7 +14,7 @@ object GameDetailResponseMapper {
                 setGameValues(game, data)
             }
         }
-        return Game()
+        return game
     }
 
     private fun setGameValues(game: Game, data: List<RecordResponseDto>) {
