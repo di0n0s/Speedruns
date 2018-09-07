@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Speedruns</string>
+    <string name="game_list_toolbar_title">Game List</string>
+    <string name="game_list_empty_title">There are no games</string>
+    <string name="game_list_empty_subtitle">Pull to refresh the list</string>
+    <string name="api_error">There was an error</string>
+    <string name="game_detail_player_name_title">Player´s name</string>
+    <string name="game_detail_run_time_title">Run time</string>
+    <string name="game_detail_video_button">Go to Video</string>
+</resources>
